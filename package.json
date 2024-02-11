@@ -9,8 +9,9 @@
     "node": ">=20.10.0"
   },
   "scripts": {
+    "start": "run-p start:server start:ui",
     "start:server": "tsx src/express-server.ts",
-    "start": "tsx build/esbuild-server.ts",
+    "start:ui": "tsx build/esbuild-server.ts",
     "build": "tsx build/esbuild-build.ts",
     "format": "run-s format:lint format:prettier format:cspell",
     "format:lint": "eslint --fix .",
