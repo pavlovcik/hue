@@ -34,14 +34,27 @@ button {
 button:hover {
   background-color: #ffffff40;
 }
-
 #loading {
   position: fixed;
   bottom: 0;
-  background-color: #ffffff20;
   color: white;
-  padding: 16px;
+  padding: 16px 0;
   margin: 2px 0;
   width: 100%;
   font-size: 16px;
+}
+
+#progress {
+  height: 5px; /* Adjust as needed */
+  background: #ffffff; /* Adjust as needed */
+  animation: progress 1s linear infinite; /* This will be overwritten by JavaScript */
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
