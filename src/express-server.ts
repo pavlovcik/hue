@@ -1,7 +1,8 @@
-import express from "express";
 import { exec } from "child_process";
-
+import cors from "cors"; // Import cors
+import express from "express";
 const app = express();
+app.use(cors()); // Use cors middleware
 const port = 3000;
 
 app.get("/run-script/:scriptName", (req, res) => {
