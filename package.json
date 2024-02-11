@@ -9,13 +9,17 @@
     "node": ">=20.10.0"
   },
   "scripts": {
+    "start:server": "tsx src/express-server.ts",
     "start": "tsx build/esbuild-server.ts",
     "build": "tsx build/esbuild-build.ts",
     "format": "run-s format:lint format:prettier format:cspell",
     "format:lint": "eslint --fix .",
     "format:prettier": "prettier --write .",
     "format:cspell": "cspell **/*",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lights:bright": "tsx src/set-all-lights-bright.ts",
+    "lights:mid": "tsx src/set-all-lights-mid.ts",
+    "lights:dim": "tsx src/set-all-lights-dim.ts"
   },
   "keywords": [
     "typescript",
@@ -25,7 +29,9 @@
     "open-source"
   ],
   "dependencies": {
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "node-hue-api": "^5.0.0-beta.16"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
@@ -33,6 +39,7 @@
     "@cspell/dict-node": "^4.0.3",
     "@cspell/dict-software-terms": "^3.3.17",
     "@cspell/dict-typescript": "^3.1.2",
+    "@types/express": "^4.17.21",
     "@types/node": "^20.10.0",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
