@@ -4,9 +4,9 @@ import { getHue } from "./get-hue";
 // const kelvin = 2700;
 // const mireds = Math.round(1000000 / kelvin);
 // const brightState = new v3.lightStates.LightState().on(true).brightness(10).ct(mireds);
-const colorLoop = new v3.lightStates.LightState().effect("colorloop").brightness(10).on(true);
+// const colorLoop = new v3.lightStates.LightState().effect("colorloop").brightness(10).on(true);
 
-(async function main() {
+void (async function main() {
   const hue = await getHue();
   const groups = await hue.groups.getAll();
   const roomNames = groups.filter((group) => group.type === "Room").map((room) => room.name);
@@ -32,16 +32,16 @@ async function setLightsByRoomName(roomName, lightSetting, groups, hue) {
     .catch((err) => console.error("An error occurred while updating the kitchen lights", err));
 }
 
-async function toggleLights(hue) {
-  const lights = await hue.lights.getAll();
-  const lightStatePromises = lights.map((light, index) => {
-    const state = colorLoop;
-    return hue.lights.setLightState(light.id, state).catch((err) => {
-      console.error(`Error changing light ${light.id} state`, err);
-    });
-  });
+// async function toggleLights(hue) {
+//   const lights = await hue.lights.getAll();
+//   const lightStatePromises = lights.map((light, index) => {
+//     const state = colorLoop;
+//     return hue.lights.setLightState(light.id, state).catch((err) => {
+//       console.error(`Error changing light ${light.id} state`, err);
+//     });
+//   });
 
-  await Promise.all(lightStatePromises)
-    .then(() => console.log("complete."))
-    .catch((err) => console.error("An error occurred while updating the lights", err));
-}
+//   await Promise.all(lightStatePromises)
+//     .then(() => console.log("complete."))
+//     .catch((err) => console.error("An error occurred while updating the lights", err));
+// }

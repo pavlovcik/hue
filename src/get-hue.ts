@@ -12,6 +12,5 @@ export async function getHue() {
   }
   const ipAddress = process.env.HUE_BRIDGE_IP;
   const username = process.env.HUE_USERNAME;
-  const hue = await v3.api.createLocal(ipAddress).connect(username);
-  return hue;
+  return await v3.api.createLocal(ipAddress).connect(username);
 }

@@ -26,7 +26,7 @@ dotenv.config();
 
   async function toggleLights() {
     const lights = await hue.lights.getAll();
-    const lightStatePromises = lights.map((light, index) => {
+    const lightStatePromises = lights.map((light) => {
       const state = brightState;
       return hue.lights.setLightState(light.id, state).catch((err) => {
         console.error(`Error changing light ${light.id} state`, err);
